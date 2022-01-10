@@ -13,6 +13,7 @@ import java.io.InputStream;
 @RequestMapping("/api/v1")
 public class TransactionsController {
 
+    @Autowired
     private TransactionsService transactionsService;
 
     //get all transactions
@@ -27,7 +28,7 @@ public class TransactionsController {
         return transactionsService.importTransactions(transactions);
     }
 
-    //get a transactionpfm_db
+    //get a transaction by id
     @GetMapping("/transactions/{id}")
     public TransactionEntity getTransaction(@PathVariable("id") Long id) {
         return transactionsService.getTransaction(id);

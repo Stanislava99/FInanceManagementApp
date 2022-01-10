@@ -3,12 +3,14 @@ package com.example.pfm.Services;
 import com.example.pfm.Models.CategoryEntity;
 import com.example.pfm.Models.TransactionEntity;
 import com.example.pfm.Repos.CategoriesRepository;
+import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+@Service
 public class CategoriesService {
 
     public CategoriesRepository categoriesRepository;
@@ -17,7 +19,7 @@ public class CategoriesService {
         this.categoriesRepository = categoriesRepository;
     }
 
-   //import categrories from csv file
+   //import categories from csv file
     public String importCategories(InputStream inputStream)  {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         String line = "";

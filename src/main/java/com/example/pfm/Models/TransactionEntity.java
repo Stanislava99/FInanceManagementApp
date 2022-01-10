@@ -3,7 +3,7 @@ package com.example.pfm.Models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "transactions")
+@Table(name = "transaction")
 public class TransactionEntity {
 
     @Id

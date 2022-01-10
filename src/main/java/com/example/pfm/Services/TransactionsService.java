@@ -2,12 +2,13 @@ package com.example.pfm.Services;
 
 import com.example.pfm.Models.TransactionEntity;
 import com.example.pfm.Repos.TransactionsRepository;
+import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-
+@Service
 public class TransactionsService {
 
     public TransactionsRepository transactionsRepository;

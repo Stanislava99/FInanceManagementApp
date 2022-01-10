@@ -3,7 +3,7 @@ CREATE TABLE `mcc` (
   `code` int(4) NOT NULL,
   `merchant_type` varchar(255) NOT NULL,
   PRIMARY KEY (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 CREATE TABLE `category` (
     `code` varchar(5) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE `category` (
     PRIMARY KEY (`code`),
     CONSTRAINT `fk_parent_code` FOREIGN KEY (`parentCode`) REFERENCES `category` (`code`)
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 CREATE TABLE `transaction` (
                                `id` int(11) NOT NULL ,
@@ -25,4 +25,4 @@ CREATE TABLE `transaction` (
                                `kind` varchar(3),
                                PRIMARY KEY (`id`),
                                CONSTRAINT `fk_mcc` FOREIGN KEY (`mcc`) REFERENCES `mcc` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)
