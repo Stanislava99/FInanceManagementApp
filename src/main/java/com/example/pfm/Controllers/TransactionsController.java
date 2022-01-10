@@ -39,6 +39,11 @@ public class TransactionsController {
 //        return transactionsService.splitTransaction(id, transactions);
 //    }
 
+    //categorize transaction
+//    @PostMapping("/transactions/{id}/categorize")
+//    public String categorizeTransaction(@PathVariable("id") Long id, @RequestBody String category) {
+//        return transactionsService.categorizeTransaction(id, category);
+//    }
 
 
 }
