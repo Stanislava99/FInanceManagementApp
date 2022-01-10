@@ -4,41 +4,41 @@
 
 ### Basic Features 
 1.  Import transactions from csv file <br/>
--Enable import of bank transactions based on the format of bank_transactions.csv file.
--Expose POST /transactions/import API endpoint for this purpose.
--Create relational DB schema to support import of transactions with id as primary key.
--Validate input according to OAS3 spec.
--Persist transaction into database.
+-Enable import of bank transactions based on the format of bank_transactions.csv file. <br/>
+-Expose POST /transactions/import API endpoint for this purpose.<br/>
+-Create relational DB schema to support import of transactions with id as primary key.<br/>
+-Validate input according to OAS3 spec.<br/>
+-Persist transaction into database.<br/>
 
 2.   List transactions with filters and pagination <br/>
-*Enable paginated listing of transactions based on supplied filter conditions.
-*Expose GET /transactions API endpoints for this purpose.
-*Implement period filter (start-date and end-date).
-*Implement transaction kinds filter as a list of acceptable transaction kinds.
+*Enable paginated listing of transactions based on supplied filter conditions.<br/><br/>
+*Expose GET /transactions API endpoints for this purpose.<br/>
+*Implement period filter (start-date and end-date).<br/>
+*Implement transaction kinds filter as a list of acceptable transaction kinds.<br/>
 
 3.  Import categories from csv file <br/>
-*Enable import of spending categories based on the format of categories.csv file.
-*Expose POST /categories/import API endpoint for this purpose.
-*Create relational DB schema to support import of categories with code as primary key and foreign key from transactions to categories on catcode matching code field.
-*Validate input according to OAS3 spec.
-*Persist categories into database.
+*Enable import of spending categories based on the format of categories.csv file.<br/><br/>
+*Expose POST /categories/import API endpoint for this purpose.<br/>
+*Create relational DB schema to support import of categories with code as primary key and foreign key from transactions to categories on catcode matching code field.<br/>
+*Validate input according to OAS3 spec.<br/>
+*Persist categories into database.<br/>
 <br/>
 *Note : * <br/>
-*when code already exists its name should be updated
-*parent-code already exists it should be updated
+*when code already exists its name should be updated<br/>
+*parent-code already exists it should be updated<br/>
 
 4.  Categorize single transaction <br/>
-*Enable categorization of a single transaction.
-*Expose POST /transactions/{id}/categorize endpoint for this purpose.
-*Validate that both category and transaction exists in database.
-*Persist newly set category in database.
+*Enable categorization of a single transaction.<br/>
+*Expose POST /transactions/{id}/categorize endpoint for this purpose.<br/>
+*Validate that both category and transaction exists in database.<br/>
+*Persist newly set category in database.<br/>
 
 5. Split transaction <br/>
-[*Enable split of transaction into multiple spending categories or subcategories.
-*Expose POST /transactions/{id}/split endpoint for this purpose.
-*If transaction is already split, deleta existing splits and replace them with new ones.
-*Validate that the transaction and categories exist.
-*Create relational DB schema that can persist splits for a transaction.
-*Extend transaction list endpoint to return splits for each transaction.
-*Persist splits into database with amount and catcode.]
+*Enable split of transaction into multiple spending categories or subcategories.<br/>
+*Expose POST /transactions/{id}/split endpoint for this purpose.<br/>
+*If transaction is already split, deleta existing splits and replace them with new ones.<br/>
+*Validate that the transaction and categories exist.<br/>
+*Create relational DB schema that can persist splits for a transaction.<br/>
+*Extend transaction list endpoint to return splits for each transaction.<br/>
+*Persist splits into database with amount and catcode.
 
