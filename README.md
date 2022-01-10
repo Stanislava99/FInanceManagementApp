@@ -23,7 +23,6 @@
 - Validate input according to OAS3 spec.<br/>
 - Persist categories into database.<br/>
 <br/>
-##### Note :  <br/>
 - when code already exists its name should be updated<br/>
 - parent-code already exists it should be updated<br/> 
 <br/>
