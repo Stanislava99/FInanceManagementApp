@@ -11,7 +11,7 @@
 - Persist transaction into database.<br/>
 
 2.   _List transactions with filters and pagination_ <br/>
-- Enable paginated listing of transactions based on supplied filter conditions.<br/><br/>
+- Enable paginated listing of transactions based on supplied filter conditions.<br/>
 - Expose GET /transactions API endpoints for this purpose.<br/>
 - Implement period filter (start-date and end-date).<br/>
 - Implement transaction kinds filter as a list of acceptable transaction kinds.<br/>
@@ -25,7 +25,8 @@
 <br/>
 *Note : * <br/>
 - when code already exists its name should be updated<br/>
-- parent-code already exists it should be updated<br/>
+- parent-code already exists it should be updated<br/> 
+<br/>
 
 4.  _Categorize single transaction_ <br/>
 - Enable categorization of a single transaction.<br/>
