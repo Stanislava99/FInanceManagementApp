@@ -17,15 +17,15 @@
 *Implement transaction kinds filter as a list of acceptable transaction kinds.<br/>
 
 3.  Import categories from csv file <br/>
-*Enable import of spending categories based on the format of categories.csv file.<br/><br/>
-*Expose POST /categories/import API endpoint for this purpose.<br/>
-*Create relational DB schema to support import of categories with code as primary key and foreign key from transactions to categories on catcode matching code field.<br/>
-*Validate input according to OAS3 spec.<br/>
-*Persist categories into database.<br/>
+- Enable import of spending categories based on the format of categories.csv file.<br/><br/>
+- Expose POST /categories/import API endpoint for this purpose.<br/>
+- Create relational DB schema to support import of categories with code as primary key and foreign key from transactions to categories on catcode matching code field.<br/>
+- Validate input according to OAS3 spec.<br/>
+- Persist categories into database.<br/>
 <br/>
 *Note : * <br/>
-*when code already exists its name should be updated<br/>
-*parent-code already exists it should be updated<br/>
+- when code already exists its name should be updated<br/>
+- parent-code already exists it should be updated<br/>
 
 4.  Categorize single transaction <br/>
 *Enable categorization of a single transaction.<br/>
