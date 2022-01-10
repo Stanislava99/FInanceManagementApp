@@ -17,7 +17,7 @@
 - Implement transaction kinds filter as a list of acceptable transaction kinds.<br/>
 
 3.  _Import categories from csv file_ <br/>
-- Enable import of spending categories based on the format of categories.csv file.<br/><br/>
+- Enable import of spending categories based on the format of categories.csv file.<br/>
 - Expose POST /categories/import API endpoint for this purpose.<br/>
 - Create relational DB schema to support import of categories with code as primary key and foreign key from transactions to categories on catcode matching code field.<br/>
 - Validate input according to OAS3 spec.<br/>
