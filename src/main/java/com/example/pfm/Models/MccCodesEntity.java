@@ -1,5 +1,6 @@
 package com.example.pfm.Models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -9,8 +10,9 @@ import javax.persistence.Table;
 public class MccCodesEntity {
 
     @Id
+    @Column(name = "code")
     private Long code;
-
+    @Column(name = "merchant_type")
     private String merchantType;
 
     public MccCodesEntity() {

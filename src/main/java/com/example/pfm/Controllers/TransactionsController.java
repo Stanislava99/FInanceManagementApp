@@ -27,12 +27,16 @@ public class TransactionsController {
         return transactionsService.importTransactions(transactions);
     }
 
-    //get a transaction
+    //get a transactionpfm_db
     @GetMapping("/transactions/{id}")
     public TransactionEntity getTransaction(@PathVariable("id") Long id) {
         return transactionsService.getTransaction(id);
     }
 
+    @GetMapping("/ok")
+    public String ok() {
+        return "ok";
+    }
     //split transaction
 //    @PostMapping("/transactions/{id}/split")
 //    public String splitTransaction(@PathVariable("id") String id, @RequestBody String transactions) {
