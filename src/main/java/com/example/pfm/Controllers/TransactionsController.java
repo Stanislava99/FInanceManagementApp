@@ -20,8 +20,8 @@ public class TransactionsController {
 
     //get all transactions
     @GetMapping("/transactions")
-    public List<TransactionEntity> getTransactions() {
-        return transactionsService.getTransactions();
+    public List<TransactionEntity> getTransactions(QueryParams queryParams) {
+        return transactionsService.getTransactions(queryParams);
     }
 
     //import transaction

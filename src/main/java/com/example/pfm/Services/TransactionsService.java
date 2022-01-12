@@ -1,15 +1,22 @@
 package com.example.pfm.Services;
 
+import com.example.pfm.Helper.QueryParams;
 import com.example.pfm.Models.TransactionEntity;
 import com.example.pfm.Repos.TransactionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+import static java.util.Collections.reverseOrder;
 
 @Component
 public class TransactionsService {
@@ -47,8 +54,55 @@ public class TransactionsService {
     }
 
     //get all transactions
-    public List<TransactionEntity> getTransactions() {
-        return transactionsRepository.findAll();
+    public List<TransactionEntity> getTransactions(QueryParams queryParams) {
+
+        List<TransactionEntity> transactions = transactionsRepository.findAll();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        int numberOfPages = (int) Math.ceil(transactions.size() / queryParams.getPageSize());
+
+        if (queryParams.getStartDate() != null) {
+            transactions.removeIf(transaction -> {
+                try {
+                    return dateFormat.parse(transaction.getDate()).after(dateFormat.parse(queryParams.getStartDate()));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            });
+        }
+
+        if (queryParams.getEndDate() != null) {
+            transactions.removeIf(transaction -> {
+                try {
+                    return dateFormat.parse(transaction.getDate()).after(dateFormat.parse(queryParams.getEndDate()));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            });
+        }
+
+        if (queryParams.getTransactionKind() != null) {
+            transactions.removeIf(transaction -> transaction.getKind().compareTo(queryParams.getTransactionKind()) != 0);
+        }
+
+        for (int i=0;i<queryParams.getPageSize();i++) {
+            int ind = (queryParams.getPage() - 1 ) * 10;
+
+        }
+
+        if (Objects.equals(queryParams.getSortOrder(), "ASC")) {
+            //sort by id ascending
+            transactions.sort(Comparator.comparing(TransactionEntity::getId));
+        }
+        else if(queryParams.getSortOrder().equals("DESC")) {
+            Collections.sort(transactions,reverseOrder());
+        }
+
+
+        return transactions;
     }
 
     //get transaction by id
