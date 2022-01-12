@@ -2,20 +2,24 @@ package com.example.pfm.Services;
 
 import com.example.pfm.Models.TransactionEntity;
 import com.example.pfm.Repos.TransactionsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.List;
 
-@Service
+@Component
 public class TransactionsService {
 
+    @Autowired
     public TransactionsRepository transactionsRepository;
 
-    public TransactionsService(TransactionsRepository transactionsRepository) {
-        this.transactionsRepository = transactionsRepository;
-    }
+//    public TransactionsService(TransactionsRepository transactionsRepository) {
+//        this.transactionsRepository = transactionsRepository;
+//    }
 
     //import transactions from csv file
     public String importTransactions(InputStream inputStream) {
@@ -28,11 +32,12 @@ public class TransactionsService {
                      Long.parseLong(lineArray[0]),
                      lineArray[1],
                      lineArray[2],
-                       Double.parseDouble(lineArray[3]),
-                       lineArray[4],
+                       lineArray[3],
+                       Double.parseDouble(lineArray[4]),
                        lineArray[5],
                        lineArray[6],
-                       lineArray[7]
+                       Long.parseLong(lineArray[7]),
+                       lineArray[8]
                ));
             }
         } catch (Exception e) {
@@ -42,7 +47,7 @@ public class TransactionsService {
     }
 
     //get all transactions
-    public Iterable<TransactionEntity> getTransactions() {
+    public List<TransactionEntity> getTransactions() {
         return transactionsRepository.findAll();
     }
 

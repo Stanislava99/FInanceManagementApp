@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -18,7 +20,7 @@ public class TransactionsController {
 
     //get all transactions
     @GetMapping("/transactions")
-    public Iterable<TransactionEntity> getTransactions() {
+    public List<TransactionEntity> getTransactions() {
         return transactionsService.getTransactions();
     }
 

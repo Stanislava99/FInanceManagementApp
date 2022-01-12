@@ -3,6 +3,7 @@ package com.example.pfm.Services;
 import com.example.pfm.Models.CategoryEntity;
 import com.example.pfm.Models.TransactionEntity;
 import com.example.pfm.Repos.CategoriesRepository;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -10,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-@Service
+@Component
 public class CategoriesService {
 
     public CategoriesRepository categoriesRepository;

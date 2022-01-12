@@ -15,6 +15,9 @@ public class TransactionEntity {
     @Column(name = "date")
     private String date;
 
+    @Column(name = "direction")
+    private String direction;
+
     @Column(name = "amount")
     private double amount;
 
@@ -25,7 +28,7 @@ public class TransactionEntity {
     private String currency;
 
     @Column(name = "mcc")
-    private String mcc;
+    private Long mcc;
 
     @Column(name = "kind")
     private String kind;
@@ -33,10 +36,11 @@ public class TransactionEntity {
     public TransactionEntity() {
     }
 
-    public TransactionEntity(Long id, String beneficiaryName, String date, double amount, String description, String currency, String mcc, String kind) {
+    public TransactionEntity(Long id, String beneficiaryName, String date, String direction, double amount, String description, String currency, Long mcc, String kind) {
         this.id = id;
         this.beneficiaryName = beneficiaryName;
         this.date = date;
+        this.direction = direction;
         this.amount = amount;
         this.description = description;
         this.currency = currency;
@@ -92,11 +96,11 @@ public class TransactionEntity {
         this.currency = currency;
     }
 
-    public String getMcc() {
+    public Long getMcc() {
         return mcc;
     }
 
-    public void setMcc(String mcc) {
+    public void setMcc(Long mcc) {
         this.mcc = mcc;
     }
 
@@ -106,5 +110,13 @@ public class TransactionEntity {
 
     public void setKind(String kind) {
         this.kind = kind;
+    }
+
+    public String getDirection() {
+        return direction;
+    }
+
+    public void setDirection(String direction) {
+        this.direction = direction;
     }
 }
