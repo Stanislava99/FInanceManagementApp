@@ -1,6 +1,6 @@
 # FInanceManagementApp
 
-## Finance Management Aplication written in Java Spring
+## Finance Management Application written in Java Spring
 
 ### Basic Features 
 1.  _Import transactions from csv file_ <br/>
